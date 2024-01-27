@@ -61,4 +61,8 @@ public class Database {
 
         this.index = elements.length - 1;
     }
+
+    public int getIndex() {
+        return index;
+    }
 }
