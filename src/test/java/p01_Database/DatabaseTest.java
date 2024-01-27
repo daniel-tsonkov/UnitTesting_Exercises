@@ -13,7 +13,7 @@ public class DatabaseTest {
         Integer [] databaseElemets = database.getElements();
 
         Assert.assertArrayEquals("Arrays are not the same", numbers, databaseElemets);
-        Assert.assertEquals("Current count of element is incorect", databaseElemets.length, numbers.length);
-        Assert.assertEquals("Index is element is incorect", numbers.length - 1, database.getIndex() );
+        Assert.assertEquals("Count of element is incorect", database.getElementsCount(), numbers.length);
+        Assert.assertEquals("Index is incorect", numbers.length - 1, database.getIndex() );
     }
 }

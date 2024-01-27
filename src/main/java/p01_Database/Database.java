@@ -65,4 +65,8 @@ public class Database {
     public int getIndex() {
         return index;
     }
+
+    public int getElementsCount() {
+        return elementsCount;
+    }
 }
