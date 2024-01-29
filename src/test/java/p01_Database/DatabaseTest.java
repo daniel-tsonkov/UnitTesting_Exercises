@@ -14,7 +14,7 @@ public class DatabaseTest {
 
         Assert.assertArrayEquals("Arrays are not the same", numbers, databaseElemets);
         Assert.assertEquals("Count of element is incorect", database.getElementsCount(), numbers.length);
-        Assert.assertEquals("Index is incorect", numbers.length - 1, database.getIndex());
+        Assert.assertEquals("Index is incorect!", numbers.length - 1, database.getIndex());
     }
 
     @Test(expected = OperationNotSupportedException.class)
@@ -28,4 +28,7 @@ public class DatabaseTest {
         Integer[] numbers = new Integer[0];
         new Database(numbers);
     }
+
+    //Testing method add
+
 }
