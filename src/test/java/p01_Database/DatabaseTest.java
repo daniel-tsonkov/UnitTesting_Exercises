@@ -30,5 +30,10 @@ public class DatabaseTest {
     }
 
     //Testing method add
-
+    @Test(expected = OperationNotSupportedException.class)
+    public void testAddShouldThrowExceptionNullParameter() throws OperationNotSupportedException {
+        Integer[] numbers = {3, 4, 5, 8, 9, 10};
+        Database database = new Database(numbers);
+        database.add(null);
+    }
 }
