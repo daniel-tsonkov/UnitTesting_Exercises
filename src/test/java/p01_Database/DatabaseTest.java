@@ -42,8 +42,6 @@ public class DatabaseTest {
     // add null
     @Test(expected = OperationNotSupportedException.class)
     public void testAddShouldThrowExceptionNullParameter() throws OperationNotSupportedException {
-        //Integer[] numbers = {3, 4, 5, 8, 9, 10};
-        //Database database = new Database(numbers);
         database.add(null);
     }
 
@@ -51,8 +49,6 @@ public class DatabaseTest {
     @Test
     public void testAddShouldAddElement() throws OperationNotSupportedException {
         int valueToLoad = 64;
-        //Integer[] numbers = {3, 4, 5, 8, 9, 10};
-        //Database database = new Database(numbers);
         Integer[] elementsBefore = database.getElements();
         database.add(valueToLoad);
         Integer[] elementsAfter = database.getElements();
@@ -66,8 +62,11 @@ public class DatabaseTest {
     //remove
     //success remove element
     @Test
-    public void testRemoveLastElement() {
-
+    public void testRemoveLastElement() throws OperationNotSupportedException {
+        Integer[] elementsBefore = database.getElements();
+        database.remove();
+        Integer[] elementsAfter = database.getElements();
+        Assert.assertEquals("Invalid remove operation", elementsBefore.length - 1, elementsAfter.length);
     }
     //unsuccessful remove ArrayIndexOutOfBoundException
 }
