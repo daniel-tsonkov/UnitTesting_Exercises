@@ -41,12 +41,16 @@ public class DatabaseTest {
     //add success element
     @Test
     public void testAddShouldAddElement() throws OperationNotSupportedException {
+        int valueToLoad = 64;
         Integer[] numbers = {3, 4, 5, 8, 9, 10};
         Database database = new Database(numbers);
         Integer[] elementsBefore = database.getElements();
-        database.add(46);
+        database.add(valueToLoad);
         Integer[] elementsAfter = database.getElements();
 
+        //check if element is added
         Assert.assertEquals("Invalid add operation", elementsBefore.length + 1, elementsAfter.length);
+        //check is correct element added
+        Assert.assertEquals(elementsAfter[elementsAfter.length - 1], Integer.valueOf(valueToLoad));
     }
 }
