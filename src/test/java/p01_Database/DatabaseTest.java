@@ -67,6 +67,7 @@ public class DatabaseTest {
         database.remove();
         Integer[] elementsAfter = database.getElements();
         Assert.assertEquals("Invalid remove operation", elementsBefore.length - 1, elementsAfter.length);
+        Assert.assertEquals(elementsAfter[elementsAfter.length - 1], elementsBefore[elementsBefore.length - 2]);
     }
     //unsuccessful remove ArrayIndexOutOfBoundException
 }
