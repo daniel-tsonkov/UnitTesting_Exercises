@@ -1,20 +1,29 @@
 package p01_Database;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import javax.naming.OperationNotSupportedException;
 
 public class DatabaseTest {
+    private Database database;
+    private static final Integer[] NUMBERS = {3, 4, 5, 8, 9, 10};
+
+    @Before //This run before evty test
+    public void prepareDatabase() throws OperationNotSupportedException {
+        database = new Database(NUMBERS);
+    }
+
     @Test
-    public void testConstructorHasCreateCorrectObject() throws OperationNotSupportedException {
-        Integer[] numbers = {3, 4, 5, 8, 9, 10};
-        Database database = new Database(numbers);
+    public void testConstructorHasCreateCorrectObject() {
+        //Integer[] numbers = {3, 4, 5, 8, 9, 10};
+        //Database database = new Database(numbers);
         Integer[] databaseElemets = database.getElements();
 
-        Assert.assertArrayEquals("Arrays are not the same", numbers, databaseElemets);
-        Assert.assertEquals("Count of element is incorect", database.getElementsCount(), numbers.length);
-        Assert.assertEquals("Index is incorect!", numbers.length - 1, database.getIndex());
+        Assert.assertArrayEquals("Arrays are not the same", NUMBERS, databaseElemets);
+        Assert.assertEquals("Count of element is incorect", database.getElementsCount(), NUMBERS.length);
+        Assert.assertEquals("Index is incorect!", NUMBERS.length - 1, database.getIndex());
     }
 
     @Test(expected = OperationNotSupportedException.class)
@@ -33,8 +42,8 @@ public class DatabaseTest {
     // add null
     @Test(expected = OperationNotSupportedException.class)
     public void testAddShouldThrowExceptionNullParameter() throws OperationNotSupportedException {
-        Integer[] numbers = {3, 4, 5, 8, 9, 10};
-        Database database = new Database(numbers);
+        //Integer[] numbers = {3, 4, 5, 8, 9, 10};
+        //Database database = new Database(numbers);
         database.add(null);
     }
 
@@ -42,8 +51,8 @@ public class DatabaseTest {
     @Test
     public void testAddShouldAddElement() throws OperationNotSupportedException {
         int valueToLoad = 64;
-        Integer[] numbers = {3, 4, 5, 8, 9, 10};
-        Database database = new Database(numbers);
+        //Integer[] numbers = {3, 4, 5, 8, 9, 10};
+        //Database database = new Database(numbers);
         Integer[] elementsBefore = database.getElements();
         database.add(valueToLoad);
         Integer[] elementsAfter = database.getElements();
