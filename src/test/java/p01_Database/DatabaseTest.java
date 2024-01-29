@@ -62,4 +62,12 @@ public class DatabaseTest {
         //check is correct element added
         Assert.assertEquals(elementsAfter[elementsAfter.length - 1], Integer.valueOf(valueToLoad));
     }
+
+    //remove
+    //success remove element
+    @Test
+    public void testRemoveLastElement() {
+
+    }
+    //unsuccessful remove ArrayIndexOutOfBoundException
 }
