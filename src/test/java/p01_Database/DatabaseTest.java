@@ -18,7 +18,7 @@ public class DatabaseTest {
     }
 
     @Test(expected = OperationNotSupportedException.class)
-    public class testConstructorThrowExceptionMoreThanSixteenElements() {
+    public void testConstructorThrowExceptionMoreThanSixteenElements() {
 
     }
 }
