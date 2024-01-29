@@ -70,4 +70,8 @@ public class DatabaseTest {
         Assert.assertEquals(elementsAfter[elementsAfter.length - 1], elementsBefore[elementsBefore.length - 2]);
     }
     //unsuccessful remove ArrayIndexOutOfBoundException
+    @Test
+    public void zzz() {
+
+    }
 }
