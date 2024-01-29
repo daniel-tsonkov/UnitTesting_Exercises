@@ -30,10 +30,23 @@ public class DatabaseTest {
     }
 
     //Testing method add
+    // add null
     @Test(expected = OperationNotSupportedException.class)
     public void testAddShouldThrowExceptionNullParameter() throws OperationNotSupportedException {
         Integer[] numbers = {3, 4, 5, 8, 9, 10};
         Database database = new Database(numbers);
         database.add(null);
+    }
+
+    //add success element
+    @Test
+    public void testAddShouldAddElement() throws OperationNotSupportedException {
+        Integer[] numbers = {3, 4, 5, 8, 9, 10};
+        Database database = new Database(numbers);
+        Integer[] elementsBefore = database.getElements();
+        database.add(46);
+        Integer[] elementsAfter = database.getElements();
+
+        Assert.assertEquals("Invalid add operation", elementsBefore.length + 1, elementsAfter.length);
     }
 }
