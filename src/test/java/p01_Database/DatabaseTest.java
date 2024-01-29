@@ -18,7 +18,14 @@ public class DatabaseTest {
     }
 
     @Test(expected = OperationNotSupportedException.class)
-    public void testConstructorThrowExceptionMoreThanSixteenElements() {
+    public void testConstructorThrowExceptionMoreThanSixteenElements() throws OperationNotSupportedException {
+        Integer[] numbers = new Integer[17];
+        new Database(numbers);
+    }
 
+    @Test(expected = OperationNotSupportedException.class)
+    public void testConstructorThrowExceptionWhenLessOneElement() throws OperationNotSupportedException {
+        Integer[] numbers = new Integer[0];
+        new Database(numbers);
     }
 }
