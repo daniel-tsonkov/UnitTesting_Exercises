@@ -1,17 +1,18 @@
 package p02_ExtendedDatabase;
 
 import org.junit.Before;
-import p01_Database.Database;
 
 import javax.naming.OperationNotSupportedException;
 
 public class DatabaseTest {
-    private p01_Database.Database database;
-    private static final Integer[] NUMBERS = {3, 4, 5, 8, 9, 10};
+    private Database database;
+    private static final Person[] PEOPLE = {new Person(1, "AA"),
+                                            new Person(2, "BB"),
+                                            new Person(3, "CC")};
 
     @Before //This run before evty test
     public void prepareDatabase() throws OperationNotSupportedException {
-        database = new Database(NUMBERS);
+        database = new Database(PEOPLE);
     }
 
 
