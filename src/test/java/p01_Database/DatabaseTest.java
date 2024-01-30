@@ -73,8 +73,14 @@ public class DatabaseTest {
     //unsuccessful remove ArrayIndexOutOfBoundException
     @Test(expected = OperationNotSupportedException.class)
     public void testRemoveThrowExceptionInvalidIndex() throws OperationNotSupportedException {
-        database = new Database(); //database = new Database(new Integer[0]);
+        //database = new Database(); //database = new Database(new Integer[0]);
         //database is empty we will recive exception
+        //for (int i = 0; i < NUMBERS.length; i++) {
+         //   database.remove();
+        //}
+        for (Integer data : NUMBERS) {
+            database.remove();
+        }
         database.remove();
     }
 }
