@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import javax.naming.OperationNotSupportedException;
+import java.lang.reflect.Array;
 
 public class DatabaseTest {
     private Database database;
@@ -70,8 +71,8 @@ public class DatabaseTest {
         Assert.assertEquals(elementsAfter[elementsAfter.length - 1], elementsBefore[elementsBefore.length - 2]);
     }
     //unsuccessful remove ArrayIndexOutOfBoundException
-    @Test
-    public void zzz() {
+    @Test (expected = ArrayIndexOutOfBoundsException.class)
+    public void testRemoveThrowExceptionInvalidIndex() {
 
     }
 }
