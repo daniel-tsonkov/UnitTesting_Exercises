@@ -65,11 +65,14 @@ public class DatabaseTest {
     //success remove element
     @Test
     public void testRemoveLastElement() throws OperationNotSupportedException {
-        Integer[] elementsBefore = database.getElements();
+        Person[] elementsBefore = database.getElements();
         database.remove();
-        Integer[] elementsAfter = database.getElements();
+        Person[] elementsAfter = database.getElements();
+
         Assert.assertEquals("Invalid remove operation", elementsBefore.length - 1, elementsAfter.length);
-        Assert.assertEquals(elementsAfter[elementsAfter.length - 1], elementsBefore[elementsBefore.length - 2]);
+        Person currentLast = elementsAfter[elementsAfter.length - 1];
+        Assert.assertEquals(currentLast.getId(), 2);
+        Assert.assertEquals(currentLast.getUsername(), "BB");
     }
 
     //unsuccessful remove ArrayIndexOutOfBoundException
@@ -77,10 +80,10 @@ public class DatabaseTest {
     public void testRemoveThrowExceptionInvalidIndex() throws OperationNotSupportedException {
         //database = new Database(); //database = new Database(new Integer[0]);
         //database is empty we will recive exception
-        //for (int i = 0; i < NUMBERS.length; i++) {
+        //for (int i = 0; i < PEOPLE.length; i++) {
         //   database.remove();
         //}
-        for (Integer data : NUMBERS) {
+        for (Person data : PEOPLE) {
             database.remove();
         }
         database.remove();
