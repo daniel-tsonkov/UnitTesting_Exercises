@@ -85,4 +85,11 @@ public class DatabaseTest {
         }
         database.remove();
     }
+
+    //find by username
+    //1. username is null
+    @Test
+    public void testFindByUsernameThrowExceptionNullParameter() {
+
+    }
 }
