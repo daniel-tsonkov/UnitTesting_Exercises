@@ -48,15 +48,17 @@ public class DatabaseTest {
     //add success element
     @Test
     public void testAddShouldAddElement() throws OperationNotSupportedException {
-        int valueToLoad = 64;
+        Person newPerson = new Person(4, "DD");
         Person[] elementsBefore = database.getElements();
-        database.add(valueToLoad);
+        database.add(newPerson);
         Person[] elementsAfter = database.getElements();
 
         //check if element is added
         Assert.assertEquals("Invalid add operation", elementsBefore.length + 1, elementsAfter.length);
         //check is correct element added
-        Assert.assertEquals(elementsAfter[elementsAfter.length - 1], Integer.valueOf(valueToLoad));
+        Person lastPerson = elementsAfter[elementsAfter.length - 1];
+        Assert.assertEquals(lastPerson.getId(), 4);
+        Assert.assertEquals(lastPerson.getUsername(), "DD");
     }
 
     //remove
