@@ -80,11 +80,8 @@ public class DatabaseTest {
     public void testRemoveThrowExceptionInvalidIndex() throws OperationNotSupportedException {
         //database = new Database(); //database = new Database(new Integer[0]);
         //database is empty we will recive exception
-        //for (int i = 0; i < PEOPLE.length; i++) {
-        //   database.remove();
-        //}
-        for (Person data : PEOPLE) {
-            database.remove();
+        for (int i = 0; i < PEOPLE.length; i++) {
+           database.remove();
         }
         database.remove();
     }
