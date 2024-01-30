@@ -19,8 +19,6 @@ public class DatabaseTest {
 
     @Test
     public void testConstructorHasCreateCorrectObject() {
-        //Integer[] numbers = {3, 4, 5, 8, 9, 10};
-        //Database database = new Database(numbers);
         Person[] databaseElemets = database.getElements();
 
         Assert.assertArrayEquals("Arrays are not the same", PEOPLE, databaseElemets);
@@ -30,14 +28,14 @@ public class DatabaseTest {
 
     @Test(expected = OperationNotSupportedException.class)
     public void testConstructorThrowExceptionMoreThanSixteenElements() throws OperationNotSupportedException {
-        Integer[] numbers = new Integer[17];
-        new p01_Database.Database(numbers);
+        Person[] people = new Person[17];
+        new Database(people);
     }
 
     @Test(expected = OperationNotSupportedException.class)
     public void testConstructorThrowExceptionWhenLessOneElement() throws OperationNotSupportedException {
-        Integer[] numbers = new Integer[0];
-        new p01_Database.Database(numbers);
+        Person[] people = new Person[0];
+        new Database(people);
     }
 
     //Testing method add
@@ -51,9 +49,9 @@ public class DatabaseTest {
     @Test
     public void testAddShouldAddElement() throws OperationNotSupportedException {
         int valueToLoad = 64;
-        Integer[] elementsBefore = database.getElements();
+        Person[] elementsBefore = database.getElements();
         database.add(valueToLoad);
-        Integer[] elementsAfter = database.getElements();
+        Person[] elementsAfter = database.getElements();
 
         //check if element is added
         Assert.assertEquals("Invalid add operation", elementsBefore.length + 1, elementsAfter.length);

@@ -113,4 +113,8 @@ public class Database {
     public int getElementsCount() {
         return this.elementsCount;
     }
+
+    public int getIndex() {
+        return this.index;
+    }
 }
