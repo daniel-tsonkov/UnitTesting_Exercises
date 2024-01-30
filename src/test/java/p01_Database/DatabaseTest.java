@@ -5,7 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import javax.naming.OperationNotSupportedException;
-import java.lang.reflect.Array;
 
 public class DatabaseTest {
     private Database database;
@@ -70,9 +69,12 @@ public class DatabaseTest {
         Assert.assertEquals("Invalid remove operation", elementsBefore.length - 1, elementsAfter.length);
         Assert.assertEquals(elementsAfter[elementsAfter.length - 1], elementsBefore[elementsBefore.length - 2]);
     }
-    //unsuccessful remove ArrayIndexOutOfBoundException
-    @Test (expected = ArrayIndexOutOfBoundsException.class)
-    public void testRemoveThrowExceptionInvalidIndex() {
 
+    //unsuccessful remove ArrayIndexOutOfBoundException
+    @Test(expected = OperationNotSupportedException.class)
+    public void testRemoveThrowExceptionInvalidIndex() throws OperationNotSupportedException {
+        database = new Database(); //database = new Database(new Integer[0]);
+        //database is empty we will recive exception
+        database.remove();
     }
 }
