@@ -114,7 +114,7 @@ public class DatabaseTest {
     }
 
     //fine by ID
-    @Test(expected = OperationNotSupportedException.class)
+    @Test
     public void testFindeById() throws OperationNotSupportedException {
         Person person = database.findById(2);
         Assert.assertEquals("Invalid ID of the taken person", person.getId(), 2);
