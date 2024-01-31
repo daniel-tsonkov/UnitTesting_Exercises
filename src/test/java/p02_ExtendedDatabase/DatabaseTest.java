@@ -106,4 +106,10 @@ public class DatabaseTest {
         database.add(new Person(4, "BB"));
         database.findByUsername("BB");
     }
+
+    //do not exist user with same name
+    @Test//(expected = OperationNotSupportedException.class)
+    public void testFineByUsernameNonExistingUsername() throws OperationNotSupportedException {
+        database.findByUsername("ZZ");
+    }
 }
