@@ -12,6 +12,7 @@ public class AlarmTest {
 
         alarm.check();
 
+        //System.out.println(sensor.readPressureSample());
         Assert.assertFalse(alarm.getAlarmOn());
     }
 }
