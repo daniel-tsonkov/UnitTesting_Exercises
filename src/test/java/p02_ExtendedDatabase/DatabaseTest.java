@@ -92,4 +92,11 @@ public class DatabaseTest {
     public void testFindByUsernameThrowExceptionNullParameter() throws OperationNotSupportedException {
         database.findByUsername(null);
     }
+
+    @Test
+    public void testFineByUsername() throws OperationNotSupportedException {
+        Person person = database.findByUsername("BB");
+        Assert.assertEquals("Invalid ID of the taken person", person.getId(), 2);
+        Assert.assertEquals("Invalid Username of the taken person", person.getUsername(), "BB");
+    }
 }
