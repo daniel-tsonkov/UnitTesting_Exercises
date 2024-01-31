@@ -9,8 +9,8 @@ import javax.naming.OperationNotSupportedException;
 public class DatabaseTest {
     private Database database;
     private static final Person[] PEOPLE = {new Person(1, "AA"),
-                                            new Person(2, "BB"),
-                                            new Person(3, "CC")};
+            new Person(2, "BB"),
+            new Person(3, "CC")};
 
     @Before //This run before evty test
     public void prepareDatabase() throws OperationNotSupportedException {
@@ -81,15 +81,15 @@ public class DatabaseTest {
         //database = new Database(); //database = new Database(new Integer[0]);
         //database is empty we will recive exception
         for (int i = 0; i < PEOPLE.length; i++) {
-           database.remove();
+            database.remove();
         }
         database.remove();
     }
 
     //find by username
     //1. username is null
-    @Test
-    public void testFindByUsernameThrowExceptionNullParameter() {
-
+    @Test (expected = OperationNotSupportedException.class)
+    public void testFindByUsernameThrowExceptionNullParameter() throws OperationNotSupportedException {
+        database.findByUsername(null);
     }
 }
