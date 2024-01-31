@@ -120,4 +120,17 @@ public class DatabaseTest {
         Assert.assertEquals("Invalid ID of the taken person", person.getId(), 2);
         Assert.assertEquals("Invalid Username of the taken person", person.getUsername(), "BB");
     }
+
+    //have more than one person with the same in
+    @Test(expected = OperationNotSupportedException.class)
+    public void testFindMoreThanOnePersonWithSameId() throws OperationNotSupportedException {
+        database.add(new Person(2, "ZZ"));
+        database.findById(2);
+    }
+
+    //do not exist user with same id
+    @Test(expected = OperationNotSupportedException.class)
+    public void testFineByIdNonExistingId() throws OperationNotSupportedException {
+        database.findById(5);
+    }
 }
