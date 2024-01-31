@@ -88,7 +88,7 @@ public class DatabaseTest {
 
     //find by username
     //1. username is null
-    @Test (expected = OperationNotSupportedException.class)
+    @Test(expected = OperationNotSupportedException.class)
     public void testFindByUsernameThrowExceptionNullParameter() throws OperationNotSupportedException {
         database.findByUsername(null);
     }
@@ -98,5 +98,12 @@ public class DatabaseTest {
         Person person = database.findByUsername("BB");
         Assert.assertEquals("Invalid ID of the taken person", person.getId(), 2);
         Assert.assertEquals("Invalid Username of the taken person", person.getUsername(), "BB");
+    }
+
+    //have more than one person with the same name
+    @Test(expected = OperationNotSupportedException.class)
+    public void testFindMoreThanOnePersonWithSameName() throws OperationNotSupportedException {
+        database.add(new Person(4, "BB"));
+        database.findByUsername("BB");
     }
 }
